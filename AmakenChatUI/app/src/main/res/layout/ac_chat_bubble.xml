@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/spacing_16"
+                android:layout_marginTop="@dimen/spacing_16"
+    >
+
+    <RelativeLayout
+        android:id="@+id/rl_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cv_content_promotion"
+        android:layout_marginLeft="@dimen/spacing_80"
+        android:layout_marginRight="@dimen/spacing_16"
+        android:background="@drawable/message_sent"
+        android:backgroundTint="@color/chat_background">
+
+        <TextView
+            android:id="@+id/tv_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Send a tv chat message from this channel"
+            android:textColor="@color/primary_text"/>
+
+        <TextView
+            android:id="@+id/tv_date_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_message"
+            android:layout_marginTop="@dimen/spacing_5"
+            android:layout_toLeftOf="@+id/iv_tick"
+            android:text="9 May, 18 11:25 PM"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/font_10"/>
+
+        <ImageView
+            android:id="@+id/iv_tick"
+            android:layout_width="@dimen/spacing_15"
+            android:layout_height="@dimen/spacing_8"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/tv_message"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/spacing_5"
+            android:layout_marginTop="@dimen/spacing_5"
+            android:src="@drawable/tick"/>
+    </RelativeLayout>
+
+</RelativeLayout>

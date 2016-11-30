@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/iv_logo_image"
+        android:layout_width="@dimen/spacing_60"
+        android:layout_height="@dimen/spacing_60"
+        android:layout_marginBottom="@dimen/spacing_16"
+        android:layout_marginLeft="@dimen/spacing_16"
+        android:layout_marginTop="@dimen/spacing_10"
+        android:src="@drawable/app_icon"/>
+
+    <TextView
+        android:id="@+id/tv_channel_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/iv_logo_image"
+        android:layout_marginLeft="@dimen/spacing_10"
+        android:layout_toLeftOf="@+id/tv_date"
+        android:layout_toRightOf="@+id/iv_logo_image"
+        android:ellipsize="end"
+        android:text="Al Amaken Chat"
+        android:textColor="@color/primary_text"
+        android:textStyle="bold"
+        tools:text="fdhkjfdajfhlkadfgdafdafghadghffdfhdfdfhjhhfd"/>
+
+    <TextView
+        android:id="@+id/tv_channel_no"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_channel_name"
+        android:layout_below="@+id/tv_channel_name"
+        android:layout_toRightOf="@+id/iv_logo_image"
+        android:ellipsize="end"
+        android:text="ChannelNo.:8899"
+        android:textColor="@color/blue"/>
+
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/iv_logo_image"
+        android:layout_marginLeft="@dimen/spacing_10"
+        android:layout_marginRight="@dimen/spacing_16"
+        android:text="9 May, 18 11:25 PM"
+        android:textColor="@color/primary_text"/>
+</RelativeLayout>

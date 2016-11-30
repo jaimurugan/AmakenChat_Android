@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/spacing_16"
+    android:background="@color/white">
+
+    <include
+        android:id="@+id/cv_header_welcome"
+        layout="@layout/ac_chat_list_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:id="@+id/cv_content_welcome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="@dimen/spacing_10"
+        android:layout_below="@+id/cv_header_welcome">
+
+        <TextView
+            android:id="@+id/tv_welcome_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/spacing_16"
+            android:layout_marginRight="@dimen/spacing_16"
+            android:gravity="center"
+            android:text="Welcome to شات قناة الواقع program. You can submit your message to channel." />
+
+        <TextView
+            android:id="@+id/tv_cost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_welcome_header"
+            android:layout_marginLeft="@dimen/spacing_16"
+            android:layout_marginTop="@dimen/spacing_30"
+            android:text="Cost: 30.00 units per message"
+            android:textColor="@color/blue" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/spacing_250"
+            android:layout_below="@+id/tv_cost"
+            android:layout_marginBottom="@dimen/spacing_16"
+            android:layout_marginLeft="@dimen/spacing_16"
+            android:layout_marginRight="@dimen/spacing_16"
+            android:layout_marginTop="@dimen/spacing_20">
+
+            <ImageView
+                android:id="@+id/is_header_content"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_250"
+                android:layout_centerHorizontal="true"
+                android:layout_centerInParent="true"
+                android:background="@color/black" />
+
+            <ImageView
+                android:id="@+id/iv_left_one"
+                android:layout_width="@dimen/spacing_30"
+                android:layout_height="@dimen/spacing_30"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/left" />
+
+            <ImageView
+                android:id="@+id/iv_right_one"
+                android:layout_width="@dimen/spacing_30"
+                android:layout_height="@dimen/spacing_30"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/right" />
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>
