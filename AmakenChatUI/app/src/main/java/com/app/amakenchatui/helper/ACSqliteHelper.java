@@ -231,6 +231,8 @@ public class ACSqliteHelper extends SQLiteOpenHelper {
                 values.put(BODY_TEXT_ALIGN, welcomeCard.getBodyTextAlign());
                 values.put(BODY_TEXT_BOLD, welcomeCard.getHeadTextBold());
                 if (checkWelcomeCardExist(serviceTypeId).getCount() > 0) {
+                    String deleteQuery = "DELETE FROM " + TABLE_CONTENT + " WHERE " + CARD_TYPE_ID + " = '" + chatResponse.getCardTypeId() +"'";
+                    database.execSQL(deleteQuery);
                     database.update(TABLE_WELCOME_CARD, values, SERVICE_TYPE_ID + "=" + serviceTypeId, null);
                 } else {
                     database.insert(TABLE_WELCOME_CARD, null, values);
@@ -250,18 +252,7 @@ public class ACSqliteHelper extends SQLiteOpenHelper {
                         contentValues.put(THUMBNAIL, content.getThumbnail());
                         contentValues.put(THUMBNAIL_HEIGHT, content.getThumbnailHeight());
                         contentValues.put(THUMBNAIL_WIDTH, content.getThumbnailWidth());
-                        if (checkContentExist(chatResponse.getId(), chatResponse.getCardTypeId(), welcomeCard.getServiceTypeId(), content.getFileType()).getCount() > 0) {
-                            database.update(TABLE_CONTENT, contentValues, ID + "= ? " + " AND " + CARD_TYPE_ID + " = ? "
-                                            + " AND " + SERVICE_TYPE_ID + " = ? "
-                                            + " AND " + FILE_TYPE + " = ? ",
-                                    new String[]{String.valueOf(chatResponse.getId()),
-                                            String.valueOf(chatResponse.getCardTypeId()),
-                                            String.valueOf(welcomeCard.getServiceTypeId()),
-                                            String.valueOf(content.getFileType())});
-
-                        } else {
-                            database.insert(TABLE_CONTENT, null, contentValues);
-                        }
+                        database.insert(TABLE_CONTENT, null, contentValues);
                     }
                 }
             }
@@ -298,6 +289,8 @@ public class ACSqliteHelper extends SQLiteOpenHelper {
                 values.put(ACTION_TEXT, promotionCard.getActionText());
                 values.put(ACTION_TEXT_COLOR, promotionCard.getActionColor());
                 if (checkPromotionCardExist(promotionCard.getServiceTypeID()).getCount() > 0) {
+                    String deleteQuery = "DELETE FROM " + TABLE_CONTENT + " WHERE " + CARD_TYPE_ID + " = '" + chatResponse.getCardTypeId() +"'";
+                    database.execSQL(deleteQuery);
                     database.update(TABLE_PROMOTIONS, values, SERVICE_TYPE_ID + "=" + promotionCard.getServiceTypeID(), null);
                 } else {
                     database.insert(TABLE_PROMOTIONS, null, values);
@@ -317,18 +310,7 @@ public class ACSqliteHelper extends SQLiteOpenHelper {
                         contentValues.put(THUMBNAIL, content.getThumbnail());
                         contentValues.put(THUMBNAIL_HEIGHT, content.getThumbnailHeight());
                         contentValues.put(THUMBNAIL_WIDTH, content.getThumbnailWidth());
-                        if (checkContentExist(chatResponse.getId(), chatResponse.getCardTypeId(), promotionCard.getServiceTypeID(), content.getFileType()).getCount() > 0) {
-                            database.update(TABLE_CONTENT, contentValues, ID + "= ? " + " AND " + CARD_TYPE_ID + " = ? "
-                                            + " AND " + SERVICE_TYPE_ID + " = ? "
-                                            + " AND " + FILE_TYPE + " = ? ",
-                                    new String[]{String.valueOf(chatResponse.getId()),
-                                            String.valueOf(chatResponse.getCardTypeId()),
-                                            String.valueOf(promotionCard.getServiceTypeID()),
-                                            String.valueOf(content.getFileType())});
-                        } else {
-                            database.insert(TABLE_CONTENT, null, contentValues);
-                        }
-
+                        database.insert(TABLE_CONTENT, null, contentValues);
                     }
                 }
             }
@@ -380,15 +362,6 @@ public class ACSqliteHelper extends SQLiteOpenHelper {
     private Cursor checkPromotionCardExist(Integer serviceTypeId) {
         SQLiteDatabase database = this.getWritableDatabase();
         String linesQuery = "SELECT * " + " FROM " + TABLE_PROMOTIONS + " WHERE " + SERVICE_TYPE_ID + "=" + serviceTypeId;
-        Cursor linesCursor = database.rawQuery(linesQuery, null);
-        return linesCursor;
-    }
-
-    private Cursor checkContentExist(double id, int cardTypeId, int serviceTypeId, int fileType) {
-        SQLiteDatabase database = this.getWritableDatabase();
-        String linesQuery = "SELECT * " + " FROM " + TABLE_CONTENT + " WHERE " + ID + "=" + id + " AND " + CARD_TYPE_ID + "=" + cardTypeId
-                + " AND " + SERVICE_TYPE_ID + "=" + serviceTypeId
-                + " AND " + FILE_TYPE + "=" + fileType;
         Cursor linesCursor = database.rawQuery(linesQuery, null);
         return linesCursor;
     }
